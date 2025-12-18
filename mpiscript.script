@@ -1,0 +1,21 @@
+#!/bin/bash
+#SBATCH -J KMEANS_SWEEP
+#SBATCH --ntasks=14
+#SBATCH --time=01:00:00
+#SBATCH --mem=8G
+#SBATCH --output=kmeans-%j.out
+
+module load openmpi/4.1.5/gcc/12.2.0
+
+DATA=data.txt
+K=3
+ITERS=100
+TOL=1e-4
+
+rm -f kmeans_speedup.csv
+echo "procs,time" >> kmeans_speedup.csv
+
+for p in {1..14}
+do
+    mpirun -n $p ./a.out $DATA $K $ITERS $TOL
+done
