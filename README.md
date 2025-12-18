@@ -4,4 +4,5 @@ K-means Semester project for CS 5802 Parallel Programming
 ## requirements
 
 - Python 3.11.9 for graphing
-- If using mill use setup from CS 5802 with a custom Sbatch bash file
+- If using mill use setup from CS 5802 with a custom Sbatch bash file for MPI code
+- CUDA Code is ran like any other .cu files
